@@ -1,6 +1,14 @@
 .nav {
   grid-area: n;
   background-color: grey;
+  padding: 10px;
+  min-width: 150px;
+  max-width: 150px;
+  width: 100%;
+}
+
+.item {
+  margin-bottom: 10px;
 }
 
 .item a {
@@ -8,6 +16,6 @@
   text-decoration: none;
 }
 
-.item {
-  color: white;
+.item a.active {
+  color: goldenrod !important;
 }
