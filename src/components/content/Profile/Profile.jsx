@@ -4,7 +4,7 @@ import s from './Profile.module.css'
 
 function Profile() {
   return (
-    <div className={s.content}>
+    <div className={s.profile}>
       <div>
       <svg xmlns="http://www.w3.org/2000/svg" height="100px" width="100%" viewBox="0 0 841.9 595.3">
           <g fill="#61DAFB">
