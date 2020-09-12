@@ -13,8 +13,8 @@ function App(props) {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
-          <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+          <Route path="/profile" render={() => <Profile state={props.state.profileReducer} dispatch={props.dispatch}/>}/>
+          <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsReducer} dispatch={props.dispatch}/>}/>
         </div>
       </div>
     </BrowserRouter>

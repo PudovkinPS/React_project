@@ -1,11 +1,11 @@
 import './index.css'
 import * as serviceWorker from './serviceWorker'
-import store from './redux/state'
+import store from './redux/reduxStore'
 import ReactDOM from 'react-dom'
 import App from './App'
 import React from 'react'
 
-let renderEntireTree = (state) => ReactDOM.render(
+let renderEntireTree = () => ReactDOM.render(
     <React.StrictMode>
       <App 
         state={store.getState()}

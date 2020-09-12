@@ -4,7 +4,6 @@ import NewPost from './NewPost/NewPost'
 import Post from './Post/Post'
 
 function MyPosts(props) {
-  
   let postsElements = props.post.post.map( (p, i) => <Post key={i} message={p.message} like={p.likes} id={p.id}/>)
   
   return (

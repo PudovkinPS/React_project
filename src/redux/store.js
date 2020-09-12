@@ -1,3 +1,6 @@
+import profileReducer from './profileReducer'
+import dialogsReducer from './dialogsReducer'
+
 let store = {
   _state: {
     profilePage: {
@@ -10,9 +13,9 @@ let store = {
     },
     dialogsPage: {
       messageData: [
-        {message: 'dsfsd', id: '1'},
-        {message: '112232311', id: '2'},
-        {message: '100', id: '3'}
+        {body: 'dsfsd', id: '1'},
+        {body: '112232311', id: '2'},
+        {body: '100', id: '3'}
       ],
       dialogs: [
         {id: 1, name: 'Pavel'},
@@ -20,6 +23,7 @@ let store = {
         {id: 3, name: 'Pasha'},
         {id: 4, name: 'Pahan'}
       ],
+      newMessageBody: ''
     }
   },
   _renderEntireTree() {
@@ -34,20 +38,10 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: 7,
-        message: this._state.profilePage.newPostText,
-        likes: 0
-      }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
     
-      this._state.profilePage.post.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._renderEntireTree(this.getState())
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.text
-      this._renderEntireTree(this.getState())
-    }
+    this._renderEntireTree(this.getState())
   }
 
 }
