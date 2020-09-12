@@ -3,15 +3,17 @@ import s from './MyPosts.module.css'
 import NewPost from './NewPost/NewPost'
 import Post from './Post/Post'
 
-function MyPosts() {
+function MyPosts(props) {
+  
+  let postsElements = props.post.post.map( (p, i) => <Post key={i} message={p.message} like={p.likes} id={p.id}/>)
+  
   return (
     <div className={s.myPost}>
-      <div className={s.title}>
-      My post
-      </div>
-      <NewPost />
-      <Post message="Hi" like="15"/>
-      <Post message="Hello, bro" like="1"/>
+      <NewPost 
+        newPostText={props.post.newPostText}
+        dispatch={props.dispatch}
+      />
+      { postsElements }
     </div>
   )
 }
