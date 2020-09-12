@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './MyPosts.module.css'
-import NewPost from './NewPost/NewPost'
+import NewPostContainer from './NewPost/NewPostContainer'
 import Post from './Post/Post'
 
 function MyPosts(props) {
@@ -8,7 +8,7 @@ function MyPosts(props) {
   
   return (
     <div className={s.myPost}>
-      <NewPost 
+      <NewPostContainer 
         newPostText={props.post.newPostText}
         dispatch={props.dispatch}
       />
