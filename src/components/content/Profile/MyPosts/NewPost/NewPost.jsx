@@ -1,8 +1,11 @@
 import React from 'react'
 import s from './NewPost.module.css'
+import Post from './../Post/Post'
 
 function NewPost(props) {
   const newPostElement = React.createRef()
+
+  let postsElements = props.post.map( p => <Post key={p.id} message={p.message} like={p.likes} id={p.id}/>)
 
   const addPost = () => {
     props.addPost()
@@ -22,6 +25,7 @@ function NewPost(props) {
         <textarea ref={newPostElement} cols="20" rows="5" value={props.newPostText} onChange={onPostChange}/>
         <button onClick={addPost}>Click</button>
       </div>
+      { postsElements }
     </div>
   )
 }

@@ -1,23 +1,23 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import './App.css';
 import Navbar from './components/main/Navbar/Navbar';
 import Header from './components/main/Header/Header.jsx';
 import Profile from './components/content/Profile/Profile';
 import DialogsContainer from './components/content/Dialogs/DialogsContainer';
+import UsersContainer from './components/content/Users/UsersContainer';
 
-function App(props) {
+function App() {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => <Profile state={props.state.profileReducer} dispatch={props.dispatch}/>}/>
-          <Route path="/dialogs" render={() => <DialogsContainer state={props.state.dialogsReducer} dispatch={props.dispatch}/>}/>
+          <Route path="/profile" render={() => <Profile />}/>
+          <Route path="/dialogs" render={() => <DialogsContainer />}/>
+          <Route path="/users" render={() =>  <UsersContainer />}/>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 
