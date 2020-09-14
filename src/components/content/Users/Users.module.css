@@ -3,3 +3,7 @@
   width: 75px;
   border-radius: 50%;
 }
+
+.selected {
+  font-weight: bold;
+}

@@ -1,13 +1,14 @@
 const FOLLOW = 'FOLLOW'
 const UN_FOLLOW = 'UN_FOLLOW'
 const SET_USERS = 'SET_USERS'
+const SET_CORRENT_PAGE = 'SET_CORRENT_PAGE'
+const TOTAL_USERS_COUNT = 'TOTAL_USERS_COUNT'
 
 let initialState = {
-  users: [
-    // {id: 1, photo_url: 'https://sun9-59.userapi.com/impg/R9Fy3U8GnqMgowE0M9IHYF94e9gNJKnWJA-mVA/CCD5tG7nL_s.jpg?size=200x0&quality=90&crop=16,10,2132,2132&sign=b26bf2e416d610081ebca6878de930ff&ava=1', followed: false, name: 'Lena', status: 'email-mark', location: {city: 'Moscwo'} },
-    // {id: 2, photo_url: 'https://sun9-59.userapi.com/impg/R9Fy3U8GnqMgowE0M9IHYF94e9gNJKnWJA-mVA/CCD5tG7nL_s.jpg?size=200x0&quality=90&crop=16,10,2132,2132&sign=b26bf2e416d610081ebca6878de930ff&ava=1', followed: true, name: 'Pasha', status: 'frontend', location: {city: 'Moscwo'} },
-    // {id: 3, photo_url: 'https://sun9-59.userapi.com/impg/R9Fy3U8GnqMgowE0M9IHYF94e9gNJKnWJA-mVA/CCD5tG7nL_s.jpg?size=200x0&quality=90&crop=16,10,2132,2132&sign=b26bf2e416d610081ebca6878de930ff&ava=1', followed: false, name: 'Vova', status: 'manager', location: {city: 'Pushkino'} }
-  ]
+  users: [],
+  currentPage: 1,
+  pageSize: 10,
+  totalUsers: 0,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -33,7 +34,20 @@ const usersReducer = (state = initialState, action) => {
         })
       }
     case SET_USERS:
-      return {...state, users: [...state.users, ...action.users]}
+      return {
+        ...state, 
+        users: action.users
+      }
+    case SET_CORRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage
+      }
+    case TOTAL_USERS_COUNT: 
+      return {
+        ...state,
+        totalUsers: action.totalUsersCount
+      }
     default:
       return state
   }
@@ -42,5 +56,7 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (user_id) => ({type: FOLLOW, user_id})
 export const unFollowAC = (user_id) => ({type: UN_FOLLOW, user_id})
 export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage) => ({type: SET_CORRENT_PAGE, currentPage})
+export const setTotalusersCount = (totalUsersCount) => ({type: TOTAL_USERS_COUNT, totalUsersCount})
 
 export default usersReducer

@@ -9,16 +9,14 @@ import {Provider} from 'react-redux'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App 
-          state={store.getState()}
-          dispatch={store.dispatch.bind(store)}
-        />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App 
+        state={store.getState()}
+        dispatch={store.dispatch.bind(store)}
+      />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 )
 
